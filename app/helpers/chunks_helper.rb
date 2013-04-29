@@ -15,13 +15,21 @@ module ChunksHelper
     end
   end
 
-  def clean format
+  def clean_delete format
     format.html { render :nothing => true, :status => 204}
     format.yml { render :nothing => true, :status => 204}
   end
 
-  def failed format
+  def failed_delete format
     format.html { head :error}
     format.yml { head :error}
+  end
+
+  def clean_upload format
+    format.html { head :created }
+  end
+
+  def unauthorized_upload format
+    format.html { head :unauthorized }
   end
 end

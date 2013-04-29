@@ -1,0 +1,8 @@
+stub_delete :
+  clean_delete : true
+  failed_delete : false
+  partially_deleted : false
+
+stub_upload :
+  clean_upload : true
+  unauthorized_upload : false

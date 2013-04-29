@@ -2,6 +2,7 @@ class ChunksController < ApplicationController
   include ChunksHelper
 
   before_filter :set_delete_mode, :only => :destroy_chunk
+  before_filter :set_upload_mode, :only => :upload_chunk
 
   def destroy_chunk
     respond_to do |format|
@@ -11,7 +12,7 @@ class ChunksController < ApplicationController
 
   def upload_chunk
     respond_to do |format|
-      format.html { head :created }
+      self.send(@upload_mode.to_sym, format)
     end
   end
 
@@ -49,7 +50,12 @@ class ChunksController < ApplicationController
 
   private
   def set_delete_mode
-    config = YAML.load_file("#{Rails.root}/config/delete_chunks_config.yml")
+    config = YAML.load_file("#{Rails.root}/config/chunks_config.yml")
     @delete_mode = config["stub_delete"].invert[true]
+  end
+
+  def set_upload_mode
+    config = YAML.load_file("#{Rails.root}/config/chunks_config.yml")
+    @upload_mode = config["stub_upload"].invert[true]
   end
 end

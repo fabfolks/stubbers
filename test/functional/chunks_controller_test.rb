@@ -6,16 +6,35 @@ class ChunksControllerTest < ActionController::TestCase
   # end
 
   context "upload_chunk" do
-    should "return accuess on uploading chunk" do
-      put :upload_chunk, :name => "A"
-      assert_response 201
+    context "clean upload" do
+      setup do
+        config = {"stub_upload"=>{"clean_upload"=>true, "unauthorized_upload"=>false}}
+        Psych.stubs(:load_file).returns(config)
+      end
+
+      should "return accuess on uploading chunk" do
+        put :upload_chunk, :name => "A"
+        assert_response 201
+      end
+    end
+
+    context "unauthorized upload" do
+      setup do
+        config = {"stub_upload"=>{"clean_upload"=>false, "unauthorized_upload"=>true}}
+        Psych.stubs(:load_file).returns(config)
+      end
+
+      should "return unauthorized error on uploading a chunk" do
+        put :upload_chunk, :name => "A"
+        assert_response 401
+      end
     end
   end
 
   context "destroy_chunks" do
     context "clean delete" do
       setup do
-        config = {"stub_delete"=>{"clean"=>true, "failed"=>false, "partially_deleted"=>false}}
+        config = {"stub_delete"=>{"clean_delete"=>true, "failed_delete"=>false, "partially_deleted"=>false}}
         Psych.stubs(:load_file).returns(config)
       end
 
@@ -31,7 +50,7 @@ class ChunksControllerTest < ActionController::TestCase
 
     context "fail delete" do
       setup do
-        config = {"stub_delete"=>{"clean"=>false, "failed"=>true, "partially_deleted"=>false}}
+        config = {"stub_delete"=>{"clean_delete"=>false, "failed_delete"=>true, "partially_deleted"=>false}}
         Psych.stubs(:load_file).returns(config)
       end
 
@@ -47,7 +66,7 @@ class ChunksControllerTest < ActionController::TestCase
 
     context "partial delete" do
       setup do
-        config = {"stub_delete"=>{"clean"=>false, "failed"=>false, "partially_deleted"=>true}}
+        config = {"stub_delete"=>{"clean_delete"=>false, "failed_delete"=>false, "partially_deleted"=>true}}
         Psych.stubs(:load_file).returns(config)
       end
 

@@ -1,4 +1,0 @@
-stub_delete :
-  clean : true
-  failed : false
-  partially_deleted : false
