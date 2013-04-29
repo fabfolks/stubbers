@@ -46,7 +46,7 @@ class ChunksControllerTest < ActionController::TestCase
 
       should "return success on deleting chunk A" do
         delete :destroy_chunk,:name => "A"
-        assert_response 204
+        assert_response 401
       end
 
       should "return bad_request on deleting chunk B" do
