@@ -5,6 +5,13 @@ class ChunksControllerTest < ActionController::TestCase
   #   assert true
   # end
 
+  context "upload_chunk" do
+    should "return accuess on uploading chunk" do
+      put :upload_chunk, :name => "A"
+      assert_response 201
+    end
+  end
+
   context "destroy_chunks" do
     context "clean delete" do
       setup do

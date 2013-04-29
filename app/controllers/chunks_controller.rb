@@ -9,6 +9,12 @@ class ChunksController < ApplicationController
     end
   end
 
+  def upload_chunk
+    respond_to do |format|
+      format.html { head :created }
+    end
+  end
+
   def acquire_credentials
     respond_to do |format|
       format.json { render :json => {"user" => {"id" => "ID", "key" => "KEY"}} }

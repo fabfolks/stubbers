@@ -1,6 +1,7 @@
 Stubbers::Application.routes.draw do
 
   delete "storage_url/cloudservers/:name", to: "chunks#destroy_chunk"
+  put "storage_url/cloudservers/:name", to: "chunks#upload_chunk"
   post "v1.1/auth", to: "chunks#authenticate"
   get "storage_url/cloudservers", to: "chunks#container"
   get "v1.1/mosso/:mosso_id", to: "chunks#acquire_credentials"
