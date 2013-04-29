@@ -1,0 +1,22 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ActiveSupport	test/test_helper.rb	/^class ActiveSupport::TestCase$/;"	c
+Application	config/application.rb	/^  class Application < Rails::Application$/;"	c	class:Stubbers
+ApplicationController	app/controllers/application_controller.rb	/^class ApplicationController < ActionController::Base$/;"	c
+ApplicationHelper	app/helpers/application_helper.rb	/^module ApplicationHelper$/;"	m
+BrowsingTest	test/performance/browsing_test.rb	/^class BrowsingTest < ActionDispatch::PerformanceTest$/;"	c
+ChunksController	app/controllers/chunks_controller.rb	/^class ChunksController < ApplicationController$/;"	c
+ChunksControllerTest	test/functional/chunks_controller_test.rb	/^class ChunksControllerTest < ActionController::TestCase$/;"	c
+ChunksHelper	app/helpers/chunks_helper.rb	/^module ChunksHelper$/;"	m
+ChunksHelperTest	test/unit/helpers/chunks_helper_test.rb	/^class ChunksHelperTest < ActionView::TestCase$/;"	c
+Stubbers	config/application.rb	/^module Stubbers$/;"	m
+about	public/index.html	/^      function about() {$/;"	f
+authenticate	app/controllers/chunks_controller.rb	/^  def authenticate$/;"	f	class:ChunksController
+check_for_container	app/controllers/chunks_controller.rb	/^  def check_for_container$/;"	f	class:ChunksController
+chunk_names	app/controllers/chunks_controller.rb	/^  def chunk_names$/;"	f	class:ChunksController
+destroy_chunk	app/controllers/chunks_controller.rb	/^  def destroy_chunk$/;"	f	class:ChunksController
+test_homepage	test/performance/browsing_test.rb	/^  def test_homepage$/;"	f	class:BrowsingTest
